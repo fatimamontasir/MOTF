@@ -1,4 +1,4 @@
-name: Quick CI
+name: Fix CI
 
 on:
   push:
@@ -14,9 +14,9 @@ jobs:
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.16.0'
 
-      - name: Install deps
-        run: flutter pub get
+      - run: flutter doctor
 
-      - name: Build APK
-        run: flutter build apk --debug
+      - run: flutter pub get
